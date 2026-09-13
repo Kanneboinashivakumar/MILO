@@ -1,8 +1,7 @@
 import type { Itinerary, ItineraryItem, CrowdState, Session, VenueZone, Attendee, AdaptationSuggestion } from '../types';
-import { getStatus } from './crowdEngine';
+import { getStatus, getUtilizationPct } from './crowdEngine';
 import { scoreSession } from './recommendationEngine';
 import { findRoute } from './routingEngine';
-import { getUtilizationPct } from './crowdEngine';
 
 /** Returns which itinerary items are impacted by current crowd conditions or cancellations */
 export function checkItineraryImpact(
