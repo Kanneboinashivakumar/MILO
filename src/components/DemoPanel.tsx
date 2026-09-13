@@ -146,12 +146,12 @@ export function DemoPanel() {
 
               {/* Natural Language Prompt Input */}
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="copilot-input" className="text-[11px] font-semibold text-ink">
+                <label htmlFor="demo-prompt-input" className="text-[11px] font-semibold text-ink">
                   Enter Any Live Prompt / Event Instruction
                 </label>
                 <div className="flex gap-1.5">
                   <input
-                    id="copilot-input"
+                    id="demo-prompt-input"
                     type="text"
                     value={promptText}
                     onChange={(e) => setPromptText(e.target.value)}

@@ -2,14 +2,13 @@ import { describe, it, expect, beforeEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { useEventStore } from '../src/store/useEventStore';
 import { runScenario, generateResponsePlan } from '../src/engine/simulationEngine';
-import { applyResponsePlan, computeHealth } from '../src/engine/healthEngine';
-import { checkItineraryImpact, generateAdaptation, applyAdaptation } from '../src/engine/adaptationEngine';
+import { applyAdaptation } from '../src/engine/adaptationEngine';
 import { findSafeRoute, getNearestFacility } from '../src/engine/safetyEngine';
 import { findRoute } from '../src/engine/routingEngine';
 import { parseAttendeeInput, generateItinerary } from '../src/engine/recommendationEngine';
 import { SEED_ZONES, SEED_SESSIONS, SEED_SCENARIOS } from '../src/data/seed';
 
-describe('Audit & Hardening � Full End-to-End & Engine Verification', () => {
+describe('Audit & Hardening — Full End-to-End & Engine Verification', () => {
   beforeEach(() => {
     const { result } = renderHook(() => useEventStore());
     act(() => result.current.resetDemo());

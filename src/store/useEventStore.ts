@@ -7,7 +7,7 @@ import type {
 } from '../types';
 import {
   SEED_ZONES, SEED_SESSIONS, SEED_SCENARIOS,
-  SEED_ATTENDEE, SEED_EVENT,
+  SEED_ATTENDEE,
   SEED_HACKATHON_EVENT, SEED_HACKATHON_SESSIONS,
 } from '../data/seed';
 import { computeAllCrowdStates } from '../engine/crowdEngine';

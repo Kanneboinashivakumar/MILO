@@ -57,7 +57,7 @@ export function ResponsePlanCard({ plan }: ResponsePlanCardProps) {
       {(healthBefore !== undefined && healthAfter !== undefined) && (
         <Card className="!p-5 border-inkSoft border-2" role="status" aria-live="polite">
           <p className="text-[11px] font-medium uppercase tracking-widest text-midGray mb-3">
-            {isFullyApplied ? 'Response Applied · Health Impact' : 'Projected Health Impact'}
+            {isFullyApplied ? 'Response Applied · Health Impact' : previewing ? 'Previewing Projected Health Impact' : 'Projected Health Impact'}
           </p>
           <div className="flex items-center gap-4">
             <div className="text-center">

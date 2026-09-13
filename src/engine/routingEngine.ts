@@ -6,7 +6,6 @@ import { getUtilizationPct } from './crowdEngine';
 const CROWD_PENALTY_WEIGHT   = 0.05; // per % above 50
 const BLOCKED_PENALTY        = 9999; // effectively infinite — excludes zone
 const STAIRS_HARD_EXCLUSION  = 9999; // hard constraint, not a soft penalty
-const MINUTES_PER_ZONE_BASE  = 3;    // fallback edge weight
 
 /** Dijkstra-based routing with crowd, blocked, and accessibility costs */
 export function findRoute(

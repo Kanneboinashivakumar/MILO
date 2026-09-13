@@ -235,25 +235,29 @@ export function AuthPage() {
 
               <form onSubmit={handleLoginSubmit} className="flex flex-col gap-3 mt-1">
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-semibold text-ink">Email Address</label>
+                  <label htmlFor="login-email" className="text-xs font-semibold text-ink">Email Address</label>
                   <input
+                    id="login-email"
                     type="email"
                     required
                     value={loginEmail}
                     onChange={e => setLoginEmail(e.target.value)}
                     placeholder="alex@event.com"
+                    aria-label="Email Address"
                     className="w-full text-xs bg-canvas rounded-nested border border-hairline px-3.5 py-2.5 text-ink placeholder-midGray focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-semibold text-ink">Password</label>
+                  <label htmlFor="login-password" className="text-xs font-semibold text-ink">Password</label>
                   <input
+                    id="login-password"
                     type="password"
                     required
                     value={loginPassword}
                     onChange={e => setLoginPassword(e.target.value)}
                     placeholder="••••••••"
+                    aria-label="Password"
                     className="w-full text-xs bg-canvas rounded-nested border border-hairline px-3.5 py-2.5 text-ink placeholder-midGray focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                   />
                 </div>
@@ -277,49 +281,57 @@ export function AuthPage() {
           {activeTab === 'signup' && (
             <form onSubmit={handleSignupSubmit} className="flex flex-col gap-3">
               <div className="flex flex-col gap-1">
-                <label className="text-xs font-semibold text-ink">Full Name</label>
+                <label htmlFor="signup-name" className="text-xs font-semibold text-ink">Full Name</label>
                 <input
+                  id="signup-name"
                   type="text"
                   required
                   value={signupName}
                   onChange={e => setSignupName(e.target.value)}
                   placeholder="e.g. Alex Rivera"
+                  aria-label="Full Name"
                   className="w-full text-xs bg-canvas rounded-nested border border-hairline px-3.5 py-2 text-ink placeholder-midGray focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                 />
               </div>
 
               <div className="flex flex-col gap-1">
-                <label className="text-xs font-semibold text-ink">Email Address</label>
+                <label htmlFor="signup-email" className="text-xs font-semibold text-ink">Email Address</label>
                 <input
+                  id="signup-email"
                   type="email"
                   required
                   value={signupEmail}
                   onChange={e => setSignupEmail(e.target.value)}
                   placeholder="alex@event.com"
+                  aria-label="Email Address"
                   className="w-full text-xs bg-canvas rounded-nested border border-hairline px-3.5 py-2 text-ink placeholder-midGray focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-semibold text-ink">Password</label>
+                  <label htmlFor="signup-password" className="text-xs font-semibold text-ink">Password</label>
                   <input
+                    id="signup-password"
                     type="password"
                     required
                     value={signupPassword}
                     onChange={e => setSignupPassword(e.target.value)}
                     placeholder="••••••••"
+                    aria-label="Password"
                     className="w-full text-xs bg-canvas rounded-nested border border-hairline px-3 py-2 text-ink focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
-                  <label className="text-xs font-semibold text-ink">Confirm</label>
+                  <label htmlFor="signup-confirm-password" className="text-xs font-semibold text-ink">Confirm</label>
                   <input
+                    id="signup-confirm-password"
                     type="password"
                     required
                     value={signupConfirmPassword}
                     onChange={e => setSignupConfirmPassword(e.target.value)}
                     placeholder="••••••••"
+                    aria-label="Confirm Password"
                     className="w-full text-xs bg-canvas rounded-nested border border-hairline px-3 py-2 text-ink focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                   />
                 </div>
@@ -424,12 +436,14 @@ export function AuthPage() {
               </p>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-[11px] font-semibold text-ink">Operations Security Passcode</label>
+                <label htmlFor="organizer-passcode" className="text-[11px] font-semibold text-ink">Operations Security Passcode</label>
                 <input
+                  id="organizer-passcode"
                   type="text"
                   value={organizerPin}
                   onChange={e => setOrganizerPin(e.target.value)}
                   placeholder="OPS-ADMIN-2026"
+                  aria-label="Operations Security Passcode"
                   className="w-full text-xs font-mono tracking-wider bg-canvas rounded-nested border border-hairline px-3 py-2 text-ink focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
                 />
                 <span className="text-[10px] text-green-700">✓ Passcode verified: OPS-ADMIN-2026</span>

@@ -48,6 +48,7 @@ const ZoneShape = memo(function ZoneShape({
 }) {
   const isHigh = status === 'high';
   const isCritical = status === 'critical';
+  const isDark = isHigh || isCritical;
 
   let fill = STATUS_FILL[status];
   let stroke = STATUS_BORDER[status];
@@ -65,9 +66,9 @@ const ZoneShape = memo(function ZoneShape({
     strokeWidth = 2.5;
   }
 
-  const textColor = isSelected ? '#ffffff' : isHigh ? '#ffffff' : '#0a0a0a';
-  const subColor = isSelected ? '#a3a3a3' : isHigh ? '#d4d4d4' : '#737373';
-  const pillBg = isSelected ? '#262626' : isHigh ? '#404040' : STATUS_FILL[status];
+  const textColor = isSelected ? '#ffffff' : isDark ? '#ffffff' : '#0a0a0a';
+  const subColor = isSelected ? '#a3a3a3' : isDark ? '#d4d4d4' : '#737373';
+  const pillBg = isSelected ? '#262626' : isDark ? '#404040' : STATUS_FILL[status];
   const pillText = isSelected ? '#ffffff' : STATUS_TEXT[status];
   const pillBorder = isSelected ? '#404040' : STATUS_BORDER[status];
 

@@ -31,6 +31,7 @@ describe('Integration — Apply Response Plan raises Event Health', () => {
 
     // 3. Apply response
     const { zones: updatedZones, healthAfter } = applyResponsePlan(result.current.zones, plan);
+    expect(healthAfter).toBeGreaterThan(healthAfterOverload);
     act(() => { result.current.applyResponsePlanToStore(updatedZones); });
 
     const healthFinal = result.current.eventState.health;

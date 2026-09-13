@@ -116,6 +116,7 @@ export function HomePage() {
 
         <div className="flex gap-1.5 mb-2.5">
           <input
+            id="home-copilot-input"
             type="text"
             value={copilotQuery}
             onChange={(e) => setCopilotQuery(e.target.value)}
@@ -123,6 +124,7 @@ export function HomePage() {
               if (e.key === 'Enter') handleCopilotSubmit();
             }}
             placeholder="Ask or prompt MILO (e.g. 'Where is pizza?', 'AI workshop')"
+            aria-label="Ask or prompt MILO AI Copilot"
             className="flex-1 text-xs bg-canvas rounded-nested border border-hairline px-3 py-2 text-ink placeholder-midGray focus:outline-none focus-visible:ring-1 focus-visible:ring-inkSoft"
           />
           <Button

@@ -42,7 +42,7 @@ export function AttendeeLayout() {
 
       {/* Header with Logo, Notification Bell, User & Prominent Log Out */}
       <header className="bg-paper border-b border-hairline px-4 py-2.5 flex items-center justify-between sticky top-0 z-20">
-        <NavLink to="/login" title="Return to Welcome Screen" className="flex items-center gap-2 hover:opacity-85 transition-opacity">
+        <NavLink to="/login" title={eventName ? `${eventName} — Return to Welcome Screen` : "Return to Welcome Screen"} className="flex items-center gap-2 hover:opacity-85 transition-opacity">
           <img src="/logo.png" alt="MILO logo" className="w-6 h-6 object-contain rounded" />
           <span className="text-base font-bold tracking-tight text-ink">MILO</span>
         </NavLink>

@@ -7,7 +7,7 @@ const WEIGHT_INTEREST    = 4.0;
 const WEIGHT_TIME_FIT    = 2.0;
 const WEIGHT_PROXIMITY   = 1.5;
 const WEIGHT_CROWD       = 1.5;
-const WEIGHT_ACCESIBILITY = 2.0;
+const WEIGHT_ACCESSIBILITY = 2.0;
 const WEIGHT_POPULARITY  = 0.5;
 
 // ─── Tag vocabulary for keyword fallback ─────────────────────────────────────
@@ -103,7 +103,7 @@ export function scoreSession(
     timeFit     * WEIGHT_TIME_FIT +
     proximity   * WEIGHT_PROXIMITY +
     crowd       * WEIGHT_CROWD +
-    accessibility * WEIGHT_ACCESIBILITY +
+    accessibility * WEIGHT_ACCESSIBILITY +
     popularity  * WEIGHT_POPULARITY;
 
   // Build plain-language reason
