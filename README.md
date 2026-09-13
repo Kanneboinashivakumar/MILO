@@ -1,65 +1,48 @@
-# MILO — Smart Event Experience Platform
+# ⚡ MILO — Adaptive Smart Event Experience Platform & Venue Digital Twin
 
-> **The event platform that adapts when venue conditions change.**
+🌐 **Live Prototype:** [https://milo-two-liart.vercel.app/](https://milo-two-liart.vercel.app/) — Explore real-time attendee scheduling, interactive 13-zone Dijkstra routing, and organizer Event Twin simulations directly in your browser.  
+💻 **GitHub Repository:** [https://github.com/Kanneboinashivakumar/MILO](https://github.com/Kanneboinashivakumar/MILO)  
+🧪 **Automated Test Suite:** 83 / 83 Tests Passing (100% pass rate across 12 test files)  
+⚡ **Production Build:** React 19 + TypeScript + Vite (0 errors, ~117 kB gzipped)  
 
-MILO is a responsive, web-based Smart Event Experience Platform designed for conferences, hackathons, and exhibitions. Unlike traditional event apps that serve as passive digital brochures, MILO synchronizes physical venue conditions with attendee schedules and organizer operations in real time.
-
-- **Live Deployment:** [https://milo-two-liart.vercel.app/](https://milo-two-liart.vercel.app/)
-- **Repository:** [https://github.com/Kanneboinashivakumar/MILO](https://github.com/Kanneboinashivakumar/MILO)
-- **Automated Tests:** 83 / 83 Passing (100% pass rate across 12 test suites)
-- **Production Build:** Vite + React 19 + TypeScript (0 errors, ~117 kB gzipped bundle)
+Develop a web-based Smart Event Experience platform that makes large conferences, hackathons, and exhibitions more organized, accessible, safe, and engaging for attendees and organizers. The system provides real-time crowd telemetry, dynamically adapts personal schedules when rooms overflow, computes step-free indoor routes, and equips organizers with a predictive digital twin to simulate and dispatch venue response plans.
 
 ---
 
-## The Problem & The Solution
+## 📌 Problem Statement & The Gap
 
-| Challenge in Large Events | Traditional Event App | MILO Adaptive Platform |
-|---|---|---|
-| **Confusing Navigation** | Flat static PDF map | Interactive 13-zone vector blueprint with Dijkstra A* indoor pathfinding |
-| **Overcrowding & Queues** | Static session times | Real-time crowd telemetry with proactive itinerary adaptation at >= 90% occupancy |
-| **Inaccessible Corridors** | No accessibility routing | Hard stair exclusion in graph traversal for step-free / wheelchair transit |
-| **Delayed Incident Response** | Radio calls and delayed notices | Instant broadcast dispatcher and automated Event Twin response simulations |
-| **Emergency Situations** | Generic muster map | Dynamic hazard avoidance routing to nearest safe exit and on-site emergency extensions |
+Large events (conferences, expos, hackathons) are highly dynamic environments, but their digital infrastructure is fundamentally broken:
 
-### The Core Feedback Loop
-
-```text
-SENSE (Live Telemetry) -> UNDERSTAND (Impact Analysis) -> ADAPT (Side-by-Side Reroute) -> ACT (1-Click Update)
-```
+- **Passive & Static Catalogs:** Standard event apps are digital brochures. They show static schedule listings and flat PDF maps that fail the moment a keynote overflows or a stage shifts.
+- **Overcrowding & Corridor Bottlenecks:** Attendees frequently trek across sprawling venues only to find sessions packed to 100% capacity, creating frustrated queues and unsafe hallway congestion.
+- **Inaccessible Transit Routes:** Attendees requiring step-free navigation (wheelchair users, attendees with strollers or limited mobility) encounter stairs, obstacles, or steep corridors without warning.
+- **Disconnected Incident Response:** Organizers rely on fragmented radios and delayed manual messages, lacking real-time visibility into cascade crowd spillovers and venue-wide stability.
+- **Emergency Blind Spots:** During on-site incidents, attendees struggle to locate nearest safe exits, while generic muster maps risk directing fleeing crowds directly toward hazard zones.
 
 ---
 
-## Key Features
+## 💡 The MILO Solution
 
-### Attendee Experience (`/attendee`)
-- **AI Event Planner (`/attendee/planner`):** Natural language itinerary generator. Input time constraints and interests (e.g., *"I have 2 hours and want to focus on AI workshops and mentors"*); MILO generates a chronological, conflict-free schedule with transparent reasoning for each selection.
-- **Sequential Itinerary Selection:** Interactive checkboxes allow attendees to review and toggle individual sessions or adopt the entire recommended schedule.
-- **My Schedule & Plan History (`/attendee/my-plan`):** Active agenda with walk estimates, live crowd badges, and a Plan History Archive with 1-click plan restoration.
-- **Live Blueprint Map (`/attendee/map`):** Interactive 13-zone vector blueprint with category filters (*Stages, Facilities, Restrooms, First Aid*), live occupancy tiers, and turn-by-turn routing with a step-free wheelchair toggle.
-- **MILO ADAPT:** Proactive alert card triggered when a scheduled session's room reaches critical congestion (>= 90%) or becomes blocked, displaying a side-by-side comparison (*Current vs. Suggested*) with 1-click schedule updates.
-- **Event Discovery (`/attendee`):** Searchable session catalog with quick filters (*All, Popular, Low Crowd, Accessible Now, Starting Soon*).
-- **Notification Drawer:** Real-time notification bell with badge counter for event broadcasts, schedule adjustments, and safety announcements.
-- **Protect & SOS Center (`/attendee/protect`):** One-tap emergency screen with on-site phone extensions (*Security: Ext. 911, Medical: Ext. 404, Help Desk: Ext. 101*) and hazard-avoiding emergency exit routing.
+MILO transforms static event management into a closed-loop, adaptive event operating system:
 
-### Organizer Command Center (`/organizer`)
-- **Operations Overview (`/organizer`):** Real-time dashboard displaying the Venue Health Score (0-100), total active attendees, crowd density distribution, and system logs. Passcode: `OPS-ADMIN-2026`.
-- **Live Venue Heatmap (`/organizer/live-venue`):** Spatial venue view with 4-tier crowd classifications (*Low, Moderate, High, Critical*), occupancy counts, and trend arrows.
-- **Event Twin Simulation (`/organizer/event-twin`):** Digital twin engine modeling what-if scenarios (*Main Stage Overload, Workshop Cancellation, Entrance Bottleneck, Hazard Incident*) with corridor cascade spillover analysis.
-- **Automated Response Plans:** Synthesizes actionable operational interventions (e.g., hallway re-routing, staff re-allocation) with projected health score recovery metrics.
-- **Alerts & Broadcast Dispatcher (`/organizer/alerts`):** Incident management with 1-click hazard resolution and real-time broadcast messaging to all attendee devices.
+- **Zero External Hardware:** Runs 100% in any modern web browser using client-side vector blueprints and pure TypeScript graph calculations.
+- **The Intelligent Operational Loop:** Operates continuously on a 4-stage feedback cycle:
+  $$\text{SENSE (Live Telemetry)} \longrightarrow \text{UNDERSTAND (Impact Analysis)} \longrightarrow \text{ADAPT (Side-by-Side Reroute)} \longrightarrow \text{ACT (1-Click Update)}$$
+- **Deterministic-First Engine Suite:** Pure, zero-latency algorithms for Dijkstra pathfinding, multi-factor session scoring, cascade crowd propagation, and venue health scoring without network round-trips ($<5\text{ms}$).
+- **Proactive Itinerary Adaptation (MILO ADAPT):** Scans active itineraries against real-time room occupancy ($\ge 90\%$) and provides instant side-by-side alternative recommendations.
+- **Event Twin & Predictive Simulations:** Empowers organizers to test "what-if" surge scenarios, inspect corridor cascade spillovers, and deploy verified countermeasure response plans.
+- **Safety & Step-Free Egress:** Dynamic hazard exclusion ensures emergency evacuation routes prune dangerous zones and respect hard step-free constraints.
 
 ---
 
-## Architecture
-
-MILO is built on a unidirectional reactive data flow powered by Zustand and seven decoupled, deterministic computational engines:
+## 🏗️ System Architecture
 
 ```mermaid
 flowchart TD
     subgraph Presentation ["1. Presentation Layer (React 19 + Tailwind CSS)"]
         A["Attendee Mobile Portal (/attendee)<br/>Home | Planner | My Plan | Live Map | Protect SOS"]
         O["Organizer Command Center (/organizer)<br/>Overview | Heatmap | Event Twin | Alerts"]
-        D["Interactive Demo Controller<br/>Scenario and Telemetry Injections"]
+        D["Interactive Demo Controller<br/>Scenario & Telemetry State Injections"]
     end
 
     subgraph State ["2. Reactive State Layer (Zustand)"]
@@ -67,7 +50,7 @@ flowchart TD
     end
 
     subgraph Engines ["3. Seven Deterministic Engines (/src/engine)"]
-        E1["crowdEngine.ts<br/>Occupancy calculation & 4-tier crowd classification"]
+        E1["crowdEngine.ts<br/>Occupancy percentage & 4-tier crowd classification"]
         E2["routingEngine.ts<br/>Dijkstra indoor pathfinding with step-free stair exclusion"]
         E3["recommendationEngine.ts<br/>Multi-factor interest scoring & conflict-free itinerary packing"]
         E4["adaptationEngine.ts<br/>Proactive >=90% congestion detection & side-by-side rerouting"]
@@ -99,23 +82,82 @@ flowchart TD
 
 ---
 
-## The Seven Deterministic Engines
+## ✨ Core Features
 
-All mission-critical calculations reside in `/src/engine/` as pure, deterministic TypeScript modules:
+### 1. 🧭 AI Event Planner & Explainable Itinerary Generator (`/attendee/planner`)
+Natural language schedule builder. Enter prompt constraints (e.g., *"I have 2 hours and want to focus on AI workshops and mentors"*); MILO generates a chronological, conflict-free itinerary with transparent reasoning for every selection. Interactive checkboxes allow attendees to review and toggle individual sessions or save the entire plan with 1-click.
 
-1. **`crowdEngine.ts`**: Calculates occupancy percentages `(current / capacity) * 100` and assigns tiers (*Low: 0-49%, Moderate: 50-74%, High: 75-89%, Critical: 90%+*).
-2. **`routingEngine.ts`**: Implements Dijkstra's algorithm over the 13-zone venue graph. Prunes edges marked `isStairs: true` when step-free transit is active. Dynamically penalizes crowded corridors and assigns near-infinite cost (`9999`) to blocked corridors.
-3. **`recommendationEngine.ts`**: Scores sessions based on attendee interests (+10 per matching tag), transit walking time (-2 per min), and crowd congestion (-15 for >=75%, -35 for >=90%), packing an optimal sequential schedule without overlaps.
-4. **`adaptationEngine.ts`**: Continuously checks active itineraries against live zone status. When a room reaches >=90% occupancy or is blocked, it finds low-congestion alternatives and builds a side-by-side comparison for instant 1-click adoption.
-5. **`simulationEngine.ts`**: Powers the Event Twin. Projects crowd spillover into topologically connected zones and generates response plans with estimated recovery metrics.
-6. **`healthEngine.ts`**: Evaluates venue operational stability from 0 to 100 based on critical crowd counts (-15 each), high crowd counts (-8 each), active incidents (-20 each), and blocked corridors (-10 each).
-7. **`safetyEngine.ts`**: Computes the shortest evacuation route to designated emergency exits, dynamically excluding active hazard zones while preserving step-free constraints.
+### 2. 🗺️ Interactive 13-Zone Blueprint & Dijkstra Routing (`/attendee/map`)
+Interactive SVG venue blueprint covering 13 interconnected zones. Provides live occupancy badges (*Low, Moderate, High, Critical*), category filter pills (*Stages, Facilities, Restrooms, First Aid*), and Dijkstra A* indoor pathfinding. Includes a **Wheelchair Accessible** toggle that performs hard stair pruning to guarantee step-free navigation.
+
+### 3. 🔄 MILO ADAPT: Real-Time Congestion Rerouting
+When a scheduled session's room reaches critical occupancy ($\ge 90\%$) or becomes blocked by an incident, MILO ADAPT triggers a proactive alert banner. Opening the card presents a **side-by-side comparison** (*Current vs. Suggested alternative*) showing crowd delta, walking distance, and matching interest tags. Attendees adapt their schedule and map route with a single tap.
+
+### 4. 📊 Operations Command Center & Venue Health Telemetry (`/organizer`)
+Real-time venue intelligence dashboard protected by administrative passcode (`OPS-ADMIN-2026`). Features the **Venue Health Score (0–100)** computed dynamically from crowd pressure, blocked corridors, and active incidents. Includes a spatial **Live Venue Heatmap** (`/organizer/live-venue`) with occupancy counts and rising/falling trend indicators.
+
+### 5. ⚡ Event Twin: What-If Simulation & Response Plans (`/organizer/event-twin`)
+Digital twin simulation engine allowing operators to model stress scenarios (*Main Stage Overload, Workshop Room Cancellation, Entrance Bottleneck, Emergency Incident*). Visualizes cascade crowd spillover into adjacent hallways and synthesizes executable **Automated Response Plans** with before-and-after health score projections.
+
+### 6. 🚨 Protect & SOS Center: Safe Emergency Egress (`/attendee/protect`)
+One-tap emergency screen with on-site staff telephone extensions (*Security: Ext. 911, Medical: Ext. 404, Help Desk: Ext. 101*), muster point guidance, and emergency exit routing that dynamically excludes active hazard corridors while maintaining step-free constraints.
 
 ---
 
-## 2-Minute Judging Walkthrough
+## 🛠️ Tech Stack
 
-To experience the complete adaptive cycle:
+| Domain | Technology | Purpose |
+|---|---|---|
+| **Framework** | React 19 + TypeScript | Strict typing, reactive state, component modularity |
+| **Build Tool** | Vite 8 | Sub-second HMR, optimized production rollup (~117 kB gzipped) |
+| **Styling** | Tailwind CSS | Modern high-contrast design system with fluid layouts |
+| **State Management** | Zustand 5 | Lightweight centralized store with schema-validated persistence |
+| **Indoor Routing** | Custom Dijkstra Graph | Deterministic indoor pathfinding with hard stair exclusion |
+| **Simulation Engine** | Event Twin (`simulationEngine.ts`) | Topological adjacency cascade crowd modeling |
+| **Testing Suite** | Vitest + Testing Library | 83 unit and integration tests (100% pass rate) |
+| **Deployment** | Vercel Edge Network | Sub-second global edge distribution with security headers |
+
+---
+
+## 📂 Project Structure
+
+```text
+milo/
+├── public/                     # Static branding assets and web icons
+├── src/
+│   ├── assets/                 # SVGs and UI graphics
+│   ├── components/             # Reusable UI primitives (Button, Card, Badge, ErrorBoundary)
+│   ├── data/                   # Seed venue topology (13 zones), sessions, and scenarios
+│   ├── engine/                 # Seven pure deterministic computational engines
+│   │   ├── adaptationEngine.ts # Proactive >=90% congestion detection & rerouting
+│   │   ├── crowdEngine.ts      # Utilization % and 4-tier crowd classification
+│   │   ├── healthEngine.ts     # Real-time 0-100 venue stability scoring
+│   │   ├── promptEngine.ts     # Natural language intent & keyword planner
+│   │   ├── recommendationEngine.ts # Multi-factor interest scoring & schedule packing
+│   │   ├── routingEngine.ts    # Dijkstra pathfinding with step-free stair exclusion
+│   │   ├── safetyEngine.ts     # Dynamic hazard-avoidance emergency egress
+│   │   └── simulationEngine.ts # Event Twin what-if cascade spillover modeling
+│   ├── features/               # Domain modules (AdaptCard, ResponsePlanCard)
+│   ├── pages/
+│   │   ├── attendee/           # Attendee views: Home, Planner, MyPlan, LiveMap, Protect
+│   │   ├── auth/               # Clean credentials login & organizer passcode gate
+│   │   └── organizer/          # Organizer views: Overview, LiveVenue, EventTwin, Alerts
+│   ├── store/                  # Centralized Zustand reactive store (useEventStore.ts)
+│   ├── types/                  # Strict TypeScript interfaces and discriminated unions
+│   ├── App.tsx                 # Route tree with ErrorBoundary wrapper
+│   └── main.tsx                # Application mount
+├── tests/                      # 12 automated test suites (83 tests passing)
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
+```
+
+---
+
+## 🎯 2-Minute Judging Walkthrough
+
+To experience the complete closed-loop adaptive cycle:
 
 1. **Sign In (`/login`):** Select **Alex (Attendee)** -> click **Sign In**.
 2. **AI Planner (`/attendee/planner`):** Click the template *"2h Hackathon Sprint"* -> click **Build my plan**. Both sessions are selected sequentially with transparent reasoning.
@@ -129,50 +171,52 @@ To experience the complete adaptive cycle:
 
 ---
 
-## Technical Specifications & Verification
-
-- **Frontend:** React 19.2, TypeScript 6.0 (strict type safety, zero `any`), Vite 8.3, Tailwind CSS 3.4
-- **State Management:** Zustand 5.0 (centralized reactive store with schema-validated persistence)
-- **Accessibility:** WCAG 2.1 Level AA compliant. Semantic HTML landmarks, keyboard navigable (`tabIndex`, `Enter`/`Space` handlers), skip links, ARIA live alerts, and high-contrast color palette.
-- **Security:** No external secrets or sensitive credentials. Input sanitation, prototype pollution guards in storage deserializers, HTTP security headers (`nosniff`, strict referrer policy), and React ErrorBoundary wrapper.
-- **Zero Latency:** Pure client-side execution; all graph routing, schedule packing, and simulations calculate in < 5ms without server round-trips.
-- **Automated Test Results:**
-  - 12 Test Files Passed (100%)
-  - 83 Unit and Integration Tests Passed (100%)
-  - 100% line coverage on `routingEngine`, `simulationEngine`, `safetyEngine`, `crowdEngine`, and `adaptationEngine`
-
----
-
-## Getting Started
+## 🚀 Quickstart & Local Setup
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm
+- [Node.js](https://nodejs.org/) (v18.0.0 or higher recommended)
+- Modern web browser (Chrome, Edge, Safari, Firefox)
 
-### Installation & Run
-
+### 1. Clone the repository
 ```bash
-# Clone the repository
 git clone https://github.com/Kanneboinashivakumar/MILO.git
 cd MILO/milo
-
-# Install dependencies
-npm install
-
-# Run automated tests
-npm test
-
-# Build for production
-npm run build
-
-# Start local development server
-npm run dev
 ```
 
-The application runs locally at `http://localhost:5173`.
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Run automated tests
+```bash
+npm test
+```
+*Executes all 83 unit and integration tests across 12 test suites.*
+
+### 4. Start the development server
+```bash
+npm run dev
+```
+*Open `http://localhost:5173` in your browser.*
+
+### 5. Build for production
+```bash
+npm run build
+```
+*Compiles strict TypeScript and outputs an optimized production bundle in `dist/` (~117 kB gzipped).*
 
 ---
 
-## License
+## 🔮 Future Roadmap
 
-MIT License.
+- **Hardware Sensor Ingestion:** Ingest live telemetry streams from overhead optical sensors, turnstiles, and Wi-Fi access point density logs.
+- **Sub-Meter Indoor Positioning:** Bluetooth Low Energy (BLE) and Ultra-Wideband (UWB) positioning for turn-by-turn guidance in multi-floor venues.
+- **Multi-Venue Scalability:** Extending the topological graph model to campus-wide conventions and sports stadiums.
+- **Web Push Emergency Broadcasts:** Integration with Web Push API and SMS gateways for off-app emergency broadcasts.
+
+---
+
+## 📄 License
+
+Distributed under the MIT License.
