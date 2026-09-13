@@ -1,4 +1,4 @@
-﻿# MILO — Make Every Moment Count
+# MILO — Make Every Moment Count
 
 ### The event that adapts.
 
@@ -158,77 +158,126 @@ This sequence proves that MILO is an active, closed-loop event operating system 
 
 MILO is built with a unidirectional reactive data flow centered around a centralized Zustand event state store and seven decoupled deterministic engines:
 
-`mermaid
-graph TD
-    subgraph UI ["Presentation Layer"]
-        A[Attendee UI<br/>Home · Planner · My Plan · Map · Protect]
-        B[Organizer Command Center<br/>Overview · Live Venue · Event Twin · Alerts]
-        C[Demo Controller<br/>Simulation Trigger Panel]
+```mermaid
+flowchart TD
+    %% Styling Classes
+    classDef clientStyle fill:#F4F4F5,stroke:#18181B,stroke-width:2px,color:#09090B,rx:6px,ry:6px;
+    classDef storeStyle fill:#EFF6FF,stroke:#2563EB,stroke-width:2px,color:#1E3A8A,rx:8px,ry:8px;
+    classDef engineStyle fill:#F0FDF4,stroke:#16A34A,stroke-width:1.5px,color:#14532D,rx:6px,ry:6px;
+    classDef safetyStyle fill:#FEF2F2,stroke:#DC2626,stroke-width:1.5px,color:#7F1D1D,rx:6px,ry:6px;
+    classDef infraStyle fill:#FAF5FF,stroke:#9333EA,stroke-width:1.5px,color:#581C87,rx:6px,ry:6px;
+
+    %% Client Layer
+    subgraph Client ["1. Presentation Layer (React 19 + Tailwind CSS)"]
+        direction TB
+        subgraph AttendeeViews ["Attendee Mobile Portal (/attendee)"]
+            A1["🏠 Home & Discovery<br/>(Live Sessions & Filters)"]
+            A2["🧭 AI Event Planner<br/>(Natural Language Packing)"]
+            A3["📋 My Schedule & History<br/>(Active Itinerary & Archives)"]
+            A4["🗺️ Live Blueprint Map<br/>(13 Zones & A* Routing)"]
+            A5["🚨 Protect & SOS Center<br/>(Hazard Avoidance Egress)"]
+        end
+        subgraph OrganizerViews ["Organizer Command Center (/organizer)"]
+            O1["📊 Operations Overview<br/>(Venue Health Score 0-100)"]
+            O2["🗺️ Live Venue Heatmap<br/>(4-Tier Crowd Status)"]
+            O3["⚡ Event Twin Simulation<br/>(Cascade What-If Scenarios)"]
+            O4["📢 Broadcast Dispatcher<br/>(Real-Time Attendee Alerts)"]
+        end
+        D1["🎮 Floating Demo Controller<br/>(Scenario State Injections)"]
     end
 
-    subgraph Store ["Centralized State Management"]
-        S[(Zustand Event Store<br/>VenueZones · Sessions · CrowdStates · Itinerary<br/>Incidents · Alerts · SimulationState)]
+    %% State Management Layer
+    subgraph StateLayer ["2. Reactive State Layer (Zustand Event Store)"]
+        direction TB
+        Store[("⚡ Centralized Event Store (useEventStore.ts)<br/>─────────────────────────────────<br/>• Venue Topology (13 Zones & Capacities)<br/>• Session Catalog & Speaker Tags<br/>• Real-Time Crowd Telemetry & Trends<br/>• Active Itinerary & Accessibility Profile<br/>• Active Incidents, Hazards & Broadcasts<br/>• Digital Twin Simulation Scenarios")]
     end
 
-    subgraph Engines ["Seven Core Deterministic Engines"]
-        E1[crowdEngine.ts<br/>Utilization & 4-Tier Status]
-        E2[routingEngine.ts<br/>Dijkstra Indoor Graph & Step-Free A*]
-        E3[recommendationEngine.ts<br/>Multi-Factor Scoring & Itinerary Packing]
-        E4[adaptationEngine.ts<br/>Impact Detection & Delta Alternatives]
-        E5[simulationEngine.ts<br/>Event Twin & Cascade Propagation]
-        E6[healthEngine.ts<br/>Venue Health Score Calculation 0-100]
-        E7[safetyEngine.ts<br/>Hazard Avoidance & SOS Evacuation]
+    %% Deterministic Engines Layer
+    subgraph LogicLayer ["3. Seven Core Deterministic Engines (/src/engine)"]
+        direction TB
+        subgraph CoreEngines ["Operational & Planning Engines"]
+            E1["👥 crowdEngine.ts<br/>• Utilization % Calculation<br/>• 4-Tier Crowd Classification<br/>• Rising/Falling Trend Detection"]
+            E2["🗺️ routingEngine.ts<br/>• Dijkstra Graph Indoor Routing<br/>• Hard Stair Exclusion for Wheelchairs<br/>• Crowd Congestion Cost Penalties"]
+            E3["✨ recommendationEngine.ts<br/>• Multi-Factor Interest Scoring<br/>• Walking Proximity Discounting<br/>• Conflict-Free Timeline Packing"]
+            E4["🔄 adaptationEngine.ts<br/>• Proactive 90% Threshold Scan<br/>• Side-by-Side Delta Comparison<br/>• 1-Click Itinerary Mutation"]
+            E5["⚡ simulationEngine.ts<br/>• Event Twin What-If Modeling<br/>• Topological Cascade Spillover<br/>• Automated Response Synthesis"]
+            E6["📈 healthEngine.ts<br/>• Venue Health Formula 0-100<br/>• Density & Hazard Penalties<br/>• Recovery Projections"]
+        end
+        subgraph SafetyEngineGroup ["Life Safety & Egress Engine"]
+            E7["🚨 safetyEngine.ts<br/>• Dynamic Hazard Zone Exclusion<br/>• Step-Free Emergency Exit Routing<br/>• Direct Facility & Hotline Mapping"]
+        end
     end
 
-    A <--> S
-    B <--> S
-    C --> S
-    S <--> E1
-    S <--> E2
-    S <--> E3
-    S <--> E4
-    S <--> E5
-    S <--> E6
-    S <--> E7
-`
+    %% Storage & Infrastructure Layer
+    subgraph InfraLayer ["4. Persistence & Delivery Infrastructure"]
+        direction LR
+        I1["💾 Defensive LocalStorage<br/>(Schema-Validated Archives)"]
+        I2["🛡️ ErrorBoundary & Security Headers<br/>(X-Content-Type-Options, CSP)"]
+        I3["🚀 Vercel Edge CDN<br/>(Sub-Second Vite Production Build)"]
+    end
+
+    %% Relationships
+    AttendeeViews <-->|"Reactive Selectors & Action Dispatches"| Store
+    OrganizerViews <-->|"Telemetry Feeds & Operational Actions"| Store
+    D1 -->|"Simulated Crowd Surges & Drills"| Store
+
+    Store <-->|"Real-Time Zone States"| E1
+    Store <-->|"Topological Adjacency Graph"| E2
+    Store <-->|"Attendee Profiles & Catalogs"| E3
+    Store <-->|"Active Itineraries & Alerts"| E4
+    Store <-->|"Cascade What-If Simulations"| E5
+    Store <-->|"Incident Penalties"| E6
+    Store <-->|"Emergency Egress Requests"| E7
+
+    Store -->|"Defensive Sync"| I1
+    Client --- I2
+    Client --- I3
+
+    %% Class Associations
+    class A1,A2,A3,A4,A5,O1,O2,O3,O4,D1 clientStyle;
+    class Store storeStyle;
+    class E1,E2,E3,E4,E5,E6 engineStyle;
+    class E7 safetyStyle;
+    class I1,I2,I3 infraStyle;
+```
 
 ---
 
 ## 8. Seven Core Engines
 
-All core logic resides in /src/engine/ as pure, testable, deterministic modules:
+All core logic resides in `/src/engine/` as pure, testable, deterministic modules:
 
-### 1. crowdEngine.ts
+### 1. `crowdEngine.ts`
 * **Purpose:** Computes zone utilization percentages and assigns crowd status classifications.
-* **Behavior:** Evaluates (currentCrowd / capacity) * 100, assigns status tiers, and tracks rising/falling occupancy trends.
+* **Behavior:** Evaluates `(currentCrowd / capacity) * 100`, assigns status tiers, and tracks rising/falling occupancy trends.
 * **Why It Exists:** Provides the baseline telemetry used by routing, adaptation, and health scoring.
 
-### 2. outingEngine.ts
+### 2. `routingEngine.ts`
 * **Purpose:** Indoor venue graph pathfinding respecting crowd density and physical accessibility.
-* **Behavior:** Implements Dijkstra's algorithm over the 13-zone adjacency graph. Hard-prunes edges where isStairs: true when voidStairs or wheelchairAccessible is enabled. Penalizes congested corridors (.05 \times \text{utilization above } 50\%$) and excludes blocked zones (penalty: 9999).
+* **Behavior:** Implements Dijkstra's algorithm over the 13-zone adjacency graph. Hard-prunes edges where `isStairs: true` when `avoidStairs` or `wheelchairAccessible` is enabled. Penalizes congested corridors ($0.05 \times \text{utilization above } 50\%$) and excludes blocked zones (`penalty: 9999`).
 * **Why It Exists:** Guarantees that attendees receive practical walking times and authentic step-free routes.
 
-### 3. ecommendationEngine.ts
+### 3. `recommendationEngine.ts`
 * **Purpose:** Personalizes session recommendations and packs conflict-free itineraries.
-* **Behavior:** Ranks sessions using a multi-factor formula: matching attendee interest tags ($+10$), subtracting walking transit penalties ($-2$ per minute), penalizing high crowd levels ($-15$ for $>75\%$, $-35$ for $>90\%$), and enforcing accessibility compliance. Fits sessions sequentially within the attendee's available time window.
+* **Behavior:** Ranks sessions using a multi-factor formula: matching attendee interest tags (+10), subtracting walking transit penalties (-2 per minute), penalizing high crowd levels (-15 for >75%, -35 for >90%), and enforcing accessibility compliance. Fits sessions sequentially within the attendee's available time window.
 * **Why It Exists:** Eliminates manual schedule sorting and creates tailored, feasible daily agendas.
 
-### 4. daptationEngine.ts
+### 4. `adaptationEngine.ts`
 * **Purpose:** Detects itinerary conflicts caused by real-time venue changes and proposes alternatives.
-* **Behavior:** Scans the active itinerary against live zone states. If a scheduled session's room crosses \%$ occupancy or becomes blocked, it identifies alternative sessions in lower-crowd zones matching the attendee's profile, calculating before-and-after crowd and transit metrics.
+* **Behavior:** Scans the active itinerary against live zone states. If a scheduled session's room crosses 90% occupancy or becomes blocked, it identifies alternative sessions in lower-crowd zones matching the attendee's profile, calculating before-and-after crowd and transit metrics.
 * **Why It Exists:** Ensures attendees do not walk into overcrowded or cancelled sessions.
 
-### 5. simulationEngine.ts
+### 5. `simulationEngine.ts`
 * **Purpose:** Powers the organizer's Event Twin digital simulation.
 * **Behavior:** Models what-if scenarios by projecting crowd surges into connected topological corridors based on adjacency weights. Evaluates cascade risk and synthesizes multi-action response plans.
 * **Why It Exists:** Allows operators to anticipate bottlenecks and test interventions before crowds arrive.
 
-### 6. healthEngine.ts
-* **Purpose:** Quantifies aggregate venue operational stability into a single metric (-100$).
-* **Behavior:** Starts at 100 and applies weighted penalties: critical crowd zones ($-15$), high crowd zones ($-8$), active incidents ($-20$), and blocked zones ($-10$). Clamped strictly between 0 and 100.
+### 6. `healthEngine.ts`
+* **Purpose:** Quantifies aggregate venue operational stability into a single metric (0–100).
+* **Behavior:** Starts at 100 and applies weighted penalties: critical crowd zones (-15), high crowd zones (-8), active incidents (-20), and blocked zones (-10). Clamped strictly between 0 and 100.
 * **Why It Exists:** Gives venue directors an instant, objective indicator of overall event stability.
 
-### 7. safetyEngine.ts
+### 7. `safetyEngine.ts`
 * **Purpose:** Governs emergency evacuation and facility location during incidents.
 * **Behavior:** Finds the nearest exit or first-aid station while dynamically pruning active hazard/incident zones from the routing graph. Maintains step-free constraints during emergency routing.
 * **Why It Exists:** Prevents evacuation routes from directing fleeing attendees through dangerous or blocked areas.
