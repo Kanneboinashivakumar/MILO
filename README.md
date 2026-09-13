@@ -5,9 +5,9 @@
 > Traditional event apps tell people what is happening.  
 > **MILO adapts when the event changes.**
 
-`	ext
+```text
 SENSE → UNDERSTAND → ADAPT → ACT
-`
+```
 
 MILO is a responsive, web-based **Smart Event Experience Platform** designed for large conferences, hackathons, and exhibitions. Rather than acting as a passive digital brochure, MILO functions as an adaptive event operating system that synchronizes physical venue conditions with attendee schedules and organizer operations in real time.
 
@@ -52,7 +52,7 @@ Large events present distinct operational and navigation challenges for both att
 
 MILO bridges the physical reality of the venue with the digital experience of both attendees and organizers through a continuous feedback loop:
 
-`	ext
+```text
 Event changes
       ↓
 MILO senses the change
@@ -62,7 +62,7 @@ Understands its impact
 Adapts attendee experience
       ↓
 Helps organizers respond
-`
+```
 
 MILO connects eight key event dimensions into a unified, reactive state model:
 1. **Attendee Intent:** Interests, available time budget, and walking pace.
@@ -592,4 +592,6 @@ MILO answers:
 
 ---
 
-*Built with precision for the Smart Event Experience Hackathon 2026.*
+## License
+
+MIT License.
